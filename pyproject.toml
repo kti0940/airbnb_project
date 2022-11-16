@@ -11,6 +11,7 @@ packages = [{include = "airbnb_clone_backend"}]
 python = "^3.9"
 django = "^4.1.2"
 pillow = "^9.2.0"
+django-dotenv = "^1.4.2"
 
 
 [tool.poetry.group.dev.dependencies]
