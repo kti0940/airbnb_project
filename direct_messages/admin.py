@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import ChatiingRoom, Message
+from .models import ChattingRoom, Message
 
 
-@admin.register(ChatiingRoom)
-class ChatiingRoomAdmin(admin.ModelAdmin):
+@admin.register(ChattingRoom)
+class ChattingRoomAdmin(admin.ModelAdmin):
 
     list_display = (
         "__str__",

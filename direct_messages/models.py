@@ -2,7 +2,7 @@ from django.db import models
 from common.models import CommonModel
 
 
-class ChatiingRoom(CommonModel):
+class ChattingRoom(CommonModel):
 
     """Room Model Definition"""
 
@@ -27,7 +27,7 @@ class Message(CommonModel):
         related_name="messages",
     )
     room = models.ForeignKey(
-        "direct_messages.ChatiingRoom",
+        "direct_messages.ChattingRoom",
         on_delete=models.CASCADE,
         related_name="messages",
     )
