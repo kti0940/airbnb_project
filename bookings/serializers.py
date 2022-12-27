@@ -38,6 +38,17 @@ class CreateRoomBookingSerializer(serializers.ModelSerializer):
         ).exists()
         return data
 
+    def validate(self, data):
+        if data["check_out"] <= data["check_in"]:
+            raise serializers.ValidationError("체크아웃 날짜보다 체크인이 더 앞에 와야 합니다")
+
+        if Booking.objects.filter(
+            check_in__lte=data["check_in"],
+            check_out__gte=data["check_out"],
+        ).exists():
+            raise serializers.ValidationError("이 날짜는 이미 예약되어 있습니다")
+        return data
+
 
 class PublicBookingSerializer(serializers.ModelSerializer):
     class Meta:
